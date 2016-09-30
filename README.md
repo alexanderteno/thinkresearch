@@ -23,7 +23,11 @@ Q1. All of the patients that their last_name contains the word "mit"
  
 Q2. All of the patients have been discharged from the system. That is, all of the patient's encounters have a value in the discharged_at column
 
-`SELECT * FROM hmm`
+`SELECT patients.id, patients.mrn, patients.first_name, patients.middle_name, patients.last_name, patients.weight, patients.height FROM patients LEFT JOIN encounters on patients.id = encounters.patient_id GROUP BY patients.id, patients.mrn, patients.first_name, patients.middle_name, patients.last_name, patients.weight, patients.height HAVING SUM(CASE WHEN encounters.discharged_at IS NULL THEN 1 ELSE 0 END) = 0;`
+
+| id | mrn | first_name | middle_name | last_name | weight | height|
+| ---| --- | --- | --- | --- | --- | --- | --- |
+| 3 | THC125 | Bently | Frank | Lee | 90 | 178 |
 
 Q3. All of the patient that have been admitted in between July 5th, 2014 and August 19, 2014
 
