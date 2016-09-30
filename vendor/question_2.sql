@@ -1,3 +1,5 @@
+\c thinkresearch
+
 SELECT * 
 FROM   patients 
 WHERE  last_name LIKE '%mit%';
