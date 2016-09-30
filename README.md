@@ -15,7 +15,7 @@ PostgreSQL is currently configured to use the user 'postgres'
 
 Q1. All of the patients that their last_name contains the word "mit"
 
-`SELECT * FROM patients WHERE last_name like '%mit%'`
+`SELECT * FROM patients WHERE last_name like '%mit%';`
 
 | id | first_name | middle_name | last_name | weight | height | mrn | created_at | updated_at |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
