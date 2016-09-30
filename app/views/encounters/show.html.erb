@@ -1,0 +1,30 @@
+<div class="row">
+
+  <h1>Encounter Details - (<%= @patient.first_name + ' ' + @patient.last_name %>)</h1>
+
+  <% if notice.present? then %>
+    <div class="alert alert-info alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <%= notice %>
+    </div>
+  <% end %>
+
+  <dl class="dl-horizontal col-sm-12">
+    <dt>Visit Number</dt>
+    <dd><%= @encounter.visit_number %></dd>
+    <dt>Admitted At</dt>
+    <dd><%= @encounter.admitted_at %></dd>
+    <dt>Discharged At</dt>
+    <dd><%= @encounter.discharged_at %></dd>
+    <dt>Location</dt>
+    <dd><%= @encounter.location %></dd>
+    <dt>Room</dt>
+    <dd><%= @encounter.room %></dd>
+    <dt>Bed</dt>
+    <dd><%= @encounter.bed %></dd>
+  </dl>
+
+  <%= link_to 'Edit', edit_encounter_path(@encounter), :class => "btn btn-primary" %>
+  <%= link_to 'Back', @patient, :class => "btn btn-default" %>
+
+</div>

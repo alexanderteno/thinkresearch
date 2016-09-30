@@ -1,0 +1,13 @@
+$default-padding: 9.5px;
+
+label {
+    text-transform: capitalize;
+}
+
+label.capital {
+    text-transform: uppercase;
+}
+
+.default-pad-bottom {
+    padding-bottom: $default-padding;
+}

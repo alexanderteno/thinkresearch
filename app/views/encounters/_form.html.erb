@@ -1,0 +1,79 @@
+<%= form_for encounter, :html => {:class => "form-horizontal"} do |f| %>
+  
+  <% if encounter.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(encounter.errors.count, "error") %> prohibited this encounter from being saved:</h2>
+
+      <ul>
+      <% encounter.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :visit_number, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :visit_number, :class => "form-control", :placeholder => "Visit Number", :required => true %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :admitted_at, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :admitted_at, :class => "form-control", :placeholder => "Admitted At", :id => "admitted-at-datetime", :required => true %>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $('#admitted-at-datetime').datetimepicker({
+              format: 'YYYY-MM-DD HH:mm:ss'
+            });
+        });
+    </script>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :discharged_at, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :discharged_at, :class => "form-control", :placeholder => "Discharged At", :id => "discharged-at-datetime" %>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $('#discharged-at-datetime').datetimepicker({
+              format: 'YYYY-MM-DD HH:mm:ss'
+            });
+        });
+    </script>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :location, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.text_field :location, :class => "form-control", :placeholder => "Location" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :room, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-4">
+      <%= f.number_field :room, :class => "form-control", :placeholder => "Room" %>
+    </div>
+    <%= f.label :bed, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-4">
+      <%= f.number_field :bed, :class => "form-control", :placeholder => "Bed" %>
+    </div>
+  </div>
+
+  <%= f.hidden_field :patient_id %>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit params[:action] == "new" ? "Submit" : "Update", :class => "btn btn-primary" %>
+      <%= link_to 'Cancel', patient_path(@patient), :class => "btn btn-default" %>
+    </div>
+  </div>
+
+  
+
+<% end %>
