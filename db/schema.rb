@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 20160929173728) do
   enable_extension "plpgsql"
 
   create_table "encounters", force: :cascade do |t|
-    t.string   "visit_number",  null: false
-    t.datetime "admitted_at",   null: false
+    t.string   "visit_number"
+    t.datetime "admitted_at"
     t.datetime "discharged_at"
     t.string   "location"
     t.integer  "room"
@@ -29,12 +29,12 @@ ActiveRecord::Schema.define(version: 20160929173728) do
   end
 
   create_table "patients", force: :cascade do |t|
-    t.string   "first_name",  null: false
+    t.string   "first_name"
     t.string   "middle_name"
-    t.string   "last_name",   null: false
+    t.string   "last_name"
     t.integer  "weight"
     t.integer  "height"
-    t.string   "mrn",         null: false
+    t.string   "mrn"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

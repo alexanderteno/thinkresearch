@@ -25,6 +25,7 @@
   </dl>
 
   <%= link_to 'Edit', edit_encounter_path(@encounter), :class => "btn btn-primary" %>
+  <%= link_to 'Destroy', @encounter, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
   <%= link_to 'Back', @patient, :class => "btn btn-default" %>
 
 </div>

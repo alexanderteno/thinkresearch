@@ -1,3 +1,4 @@
 ruby bin\bundle install
-psql -U postgres -f db_create.sql
+ruby bin/rails db:create
 ruby bin/rails db:migrate
+ruby bin/rails db:migrate RAILS_ENV=test

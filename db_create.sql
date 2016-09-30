@@ -1,4 +1,4 @@
-CREATE DATABASE thinkresearch
+CREATE DATABASE thinkresearch_development
 	WITH OWNER postgres
 	TEMPLATE template0
 	ENCODING 'SQL_ASCII'

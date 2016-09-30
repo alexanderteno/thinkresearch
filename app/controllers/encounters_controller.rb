@@ -15,12 +15,13 @@ class EncountersController < ApplicationController
 
   # GET /encounters/new
   def new
-    @patient = Patient.find(params[:id])
-    @encounter = Encounter.new(:patient_id => @patient.id)
+    @patient = Patient.find(params[:patient_id])
+    @encounter = Encounter.new(:patient_id => params[:patient_id])
   end
 
   # GET /encounters/1/edit
   def edit
+    @patient = Patient.find(@encounter.patient_id)
   end
 
   # POST /encounters
@@ -43,9 +44,11 @@ class EncountersController < ApplicationController
   # PATCH/PUT /encounters/1
   # PATCH/PUT /encounters/1.json
   def update
+    @patient = Patient.find(@encounter.patient_id)
+    
     respond_to do |format|
       if @encounter.update(encounter_params)
-        format.html { redirect_to @encounter, notice: 'Encounter was successfully updated.' }
+        format.html { redirect_to @patient, notice: 'Encounter was successfully updated.' }
         format.json { render :show, status: :ok, location: @encounter }
       else
         format.html { render :edit }

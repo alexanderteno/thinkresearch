@@ -20,7 +20,7 @@ class PatientsControllerTest < ActionDispatch::IntegrationTest
       post patients_url, params: { patient: { first_name: @patient.first_name, height: @patient.height, last_name: @patient.last_name, middle_name: @patient.middle_name, mrn: @patient.mrn, weight: @patient.weight } }
     end
 
-    assert_redirected_to patient_url(Patient.last)
+    assert_redirected_to root_url
   end
 
   test "should show patient" do
@@ -35,7 +35,7 @@ class PatientsControllerTest < ActionDispatch::IntegrationTest
 
   test "should update patient" do
     patch patient_url(@patient), params: { patient: { first_name: @patient.first_name, height: @patient.height, last_name: @patient.last_name, middle_name: @patient.middle_name, mrn: @patient.mrn, weight: @patient.weight } }
-    assert_redirected_to patient_url(@patient)
+    assert_redirected_to root_url
   end
 
   test "should destroy patient" do
